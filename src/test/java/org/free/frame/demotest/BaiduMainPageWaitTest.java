@@ -1,10 +1,7 @@
 package org.free.frame.demotest;
 
-import java.util.concurrent.TimeUnit;
-
 import org.free.frame.demopage.BaiduMainPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
