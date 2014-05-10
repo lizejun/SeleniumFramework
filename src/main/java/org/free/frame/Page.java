@@ -13,10 +13,14 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
 
 /**
  * <p>The <b>Page Object</b> pattern represents the screens of your web app as a series of
@@ -49,6 +53,16 @@ public abstract class Page implements SearchContext{
 	
 	public WebDriver getWebDriver() {
 		return driver;
+	}
+	
+	/**
+	 * 加载页面，并等待加载完成。
+	 * @param url
+	 */
+	public void openAndWait(String url) {
+		Selenium selenium = new WebDriverBackedSelenium(driver,url);
+		driver.get(url);
+		selenium.waitForPageToLoad("5000");
 	}
 	
 	/**

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 /**
  * @author lizejun
  *
@@ -15,6 +16,16 @@ public class DriverFactory {
 	private static DriverType DEFAULT_DRIVER_TYPE = DriverType.Firefox;
 	
     protected Logger logger = LoggerFactory.getLogger(getClass());
+    
+	private static DriverFactory instance = null;
+
+    static {
+		instance = new DriverFactory();
+	}
+		
+	public static DriverFactory getInstance() {
+		return instance;
+	}
 
 	public WebDriver getDriver() {
 		DriverType type = DEFAULT_DRIVER_TYPE;
@@ -22,8 +33,8 @@ public class DriverFactory {
 			type = Enum.valueOf(DriverType.class, ConfigurationSettings.WEBDRIVER_TYPE);
 		}
 		catch (Exception ex) {
-			this.logger.warn("Parse WebDriver.Type failed, use default driver type: " + DEFAULT_DRIVER_TYPE.name());
-			this.logger.debug(ex.getMessage(), ex);
+			logger.warn("Parse WebDriver.Type failed, use default driver type: " + DEFAULT_DRIVER_TYPE.name());
+			logger.debug(ex.getMessage(), ex);
 		}
 		return type.getDriver();
 	}

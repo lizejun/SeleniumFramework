@@ -22,7 +22,7 @@ public class BaiduMainPageWaitTest{
 	protected Selenium  selenium = null;
 
 	protected BaiduMainPage page = null;
-		
+	
 	@BeforeClass
 	public void init() {
 		System.setProperty("webdriver.ie.driver","lib\\IEDriverServer.exe");
