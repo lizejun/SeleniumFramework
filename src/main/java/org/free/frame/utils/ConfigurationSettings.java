@@ -16,6 +16,8 @@ public class ConfigurationSettings {
 		
 		private final static String SELENIUM_CONFIG="selenium-vars.properties";
 		
+		public final static String SELENIUM_DRIVER="SELENIUM_DRIVER";
+		
 		static{
 			try {
 				props = new Properties();
@@ -45,4 +47,13 @@ public class ConfigurationSettings {
 		 */
 		public static final String WEBDRIVER_CHROME_DRIVER_PATH  = getProperty("webdriver.chrome.driver.path").trim();
 
+		/**
+		 * 
+		 */
+		public static final String SCREENSHOT_ERROR_PATH = getProperty("screenshot.error.path").trim();
+		
+		/**
+		 * 
+		 */
+		public static final String SCREENSHOT_SUCESS_PATH = getProperty("screenshot.auto.path").trim();
 }
